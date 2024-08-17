@@ -1,0 +1,9 @@
+@import './abstracts/variables/_variables.scss';
+@import './abstracts/mixins/_mixins.scss';
+@import 'base.scss';
+@import './templates/parts/header';
+@import './templates/parts/footer';
+@import './templates/parts/back-to-top';
+@import './components/components';
+@import './templates/templates';
+@import './patterns/patterns';

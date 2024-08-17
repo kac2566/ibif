@@ -1,0 +1,45 @@
+// GLOBAL GAP & PADDING
+$gap: var(--global-gap);
+$desktop-global-padding: 48px;
+$tablet-global-padding: 32px;
+
+// STATE COLORS
+$error-color: #f2342b;
+$warning-color: #ffaa29;
+$success-color: #66bd50;
+
+// BORDER RADIUS
+$border-radius-4: 4px;
+$border-radius-8: 8px;
+$border-radius-12: 12px;
+$border-radius-16: 16px;
+$border-radius-24: 24px;
+$border-radius-32: 32px;
+$border-radius-40: 40px;
+$border-radius-56: 56px;
+
+// BREAKPOINTS
+$desktop: 1025px;
+$tablet: 640px;
+
+// CONTAINERS SETTINGS
+$container-margin: 32px;
+$container-wide-width: 1112;
+$container-content-width: 920;
+$container-widths: '[730,920,1112]';
+
+// COLUMNS & GAPS SETTINGS
+$columns: 6;
+$columns-gap: 30px;
+$rows-gap: 30px;
+
+// HEADER SETTINGS
+$header-height-default: 96px;
+$header-height-mobile: 70px;
+
+// SPECIFIC SETTINGS
+$max-clamp-lines: 5;
+$timing-function: 0.2s ease-in-out;
+
+// RESET SETTINGS
+$reset-p-margin: 24px;

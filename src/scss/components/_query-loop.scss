@@ -1,0 +1,20 @@
+.columns-3 {
+  @include tablet-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile-only {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.wp-block-post {
+  height: 100%;
+
+  .wp-block-group {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}

@@ -1,0 +1,13 @@
+figcaption {
+  text-align: center;
+  font-size: 16px;
+}
+
+.wp-block-image :where(figcaption) {
+  margin-top: 20px;
+}
+
+.wp-block-embed.is-type-video {
+  border-radius: 10px;
+  overflow: hidden;
+}

@@ -1,0 +1,38 @@
+{
+  "variations": {
+    "core/image": {
+      "variations": {
+        "large": {
+          "attributes": {
+            "size": "large"
+          },
+          "innerBlocks": []
+        },
+        "medium": {
+          "attributes": {
+            "size": "medium"
+          },
+          "innerBlocks": []
+        },
+        "small": {
+          "attributes": {
+            "size": "small"
+          },
+          "innerBlocks": []
+        }
+      }
+    },
+    "core/button": {
+      "variations": {
+        "button-v1": {
+          "title": "Button 1",
+          "attributes": {
+            "className": "is-style-button-v1"
+          },
+          "innerBlocks": [],
+          "isDefault": true
+        }
+      }
+    }
+  }
+}

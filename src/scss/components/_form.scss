@@ -1,0 +1,92 @@
+form:is(.wpcf7-form) {
+  p {
+    margin: unset;
+  }
+
+  label {
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.36px;
+  }
+
+  span {
+    &:is(.wpcf7-form-control-wrap) {
+      margin: 0 0 10px;
+      display: block;
+
+      .wpcf7-acceptance {
+        .wpcf7-list-item {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          input {
+            width: fit-content;
+          }
+
+          span {
+            letter-spacing: -0.24px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  input:not([type='submit']),
+  select,
+  textarea {
+    padding: 18px 20px;
+    font-family: inherit;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+    font-weight: inherit;
+    line-height: 2;
+    color: var(--wp--preset--color--gray);
+    background-color: var(--wp--preset--color--base);
+    border-style: unset;
+    border-radius: 8px;
+    outline: 0;
+    width: 100%;
+
+    &:focus-within {
+      outline: 1px solid var(--wp--preset--color--accent);
+    }
+
+    &::placeholder {
+      color: #000;
+    }
+  }
+
+  select {
+    color: #464646;
+  }
+
+  button {
+    color: var(--wp--preset--color--base);
+    font-size: var(--wp--preset--font-size--medium);
+    background-color: var(--wp--preset--color--accent);
+    padding: 20px 40px;
+    position: relative;
+    transition: background-color $timing-function, color $timing-function;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.36px;
+    line-height: 1.7;
+    font-weight: 700;
+    border-style: unset;
+    width: 100%;
+    cursor: pointer;
+    margin-top: var(--wp--preset--spacing--40);
+
+    &:hover {
+      background-color: var(--wp--preset--color--contrast);
+      color: var(--wp--preset--color--base);
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.banner-slider {
+  & &__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .wp-block-button {
+      position: relative;
+      top: unset;
+      left: unset;
+      right: unset;
+      display: block;
+      margin: unset;
+      border: 2px solid var(--wp--preset--color--blue);
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+
+      &::after {
+        display: inline-block;
+        color: var(--wp--preset--color--blue);
+
+        @include icon('\EA6E', 1.5em);
+      }
+
+      &:is(.swiper-button-prev) {
+        transform: rotate(180deg);
+      }
+
+      a {
+        display: none;
+      }
+    }
+  }
+}
+
+.editor-styles-wrapper
+  .banner-slider__buttons-wrapper
+  .wp-block-button
+  .wp-block-button__link {
+  display: none;
+}

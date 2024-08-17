@@ -1,0 +1,391 @@
+%after-before {
+  background-color: var(--wp--preset--color--contrast);
+  border-radius: 4px;
+  content: '';
+  display: block;
+  height: 4px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  transition: background-color $timing-function, transform $timing-function,
+    width $timing-function;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  box-shadow: transparent;
+  transition: box-shadow $timing-function;
+  background-color: var(--wp--preset--color--base);
+
+  &.scrolled {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation-block {
+    @include not-desktop {
+      margin-left: auto;
+    }
+  }
+
+  .header {
+    &__wrapper {
+      transition: all $timing-function;
+    }
+
+    &__desktop-move-to {
+      @include media-custom-max(1565px) {
+        gap: 12px;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+.header {
+  transition: all $timing-function;
+  &__logo {
+    transition: all $timing-function;
+    margin-right: 80px;
+    max-width: 201px;
+
+    a {
+      display: block;
+    }
+
+    svg,
+    img {
+      display: block;
+
+      @include box(100%);
+    }
+
+    @include not-desktop {
+      max-width: 102px;
+      max-height: 42px;
+    }
+  }
+
+  .wp-block-cover {
+    overflow: visible;
+  }
+}
+
+.navigation-block {
+  $navigation: &;
+
+  display: flex;
+  align-items: center;
+
+  &__nav-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+    gap: 60px;
+    padding: unset;
+
+    @include not-desktop {
+      gap: 24px;
+    }
+
+    .menu-item {
+      font-size: var(--wp--preset--font-size--medium);
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: 0.36px;
+      position: relative;
+      color: var(--wp--preset--color--contrast);
+      transition: color $timing-function;
+
+      &:hover {
+        > a {
+          color: var(--wp--preset--color--accent);
+        }
+      }
+
+      a {
+        text-decoration: none;
+        width: fit-content;
+        position: relative;
+        z-index: 2;
+      }
+
+      a[aria-current='page'] {
+        color: var(--wp--preset--color--accent);
+      }
+
+      .sub-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: transparent;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity $timing-function, visibility $timing-function,
+          max-height $timing-function;
+        list-style: none;
+        padding: 0 0 0 12px;
+        max-height: 0px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+
+        @include desktop-only {
+          padding: 20px 30px 20px;
+          gap: 16px;
+          min-width: 320px;
+          background-color: var(--wp--preset--color--base);
+
+          @include position(absolute, calc(100% + 16px), 0);
+        }
+
+        @include not-desktop {
+          box-shadow: unset;
+        }
+
+        .menu-item {
+          color: var(--wp--preset--color--contrast);
+          font-size: var(--wp--preset--font-size--medium);
+
+          @include not-desktop {
+            padding-top: 0.3em;
+            padding-bottom: 0.3em;
+          }
+
+          a[aria-current='page'] {
+            color: var(--wp--preset--color--accent);
+          }
+        }
+      }
+
+      &:is(.menu-item-has-children) {
+        display: flex;
+
+        &:is(.current-menu-parent) {
+          color: var(--wp--preset--color--accent);
+        }
+
+        &::after {
+          transition: transform $timing-function;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          will-change: transform;
+          pointer-events: none;
+          transform: translateY(-50%);
+          margin-left: 0.4em;
+
+          @include icon('\EA13', 0.8em);
+
+          @include desktop-only {
+            @include position(relative, 50%, 0);
+          }
+
+          @include not-desktop {
+            @include position(absolute, 24px, 0);
+          }
+        }
+      }
+
+      &--open {
+        &:is(.menu-item-has-children)::after {
+          @include icon('\F1AF', 0.8em);
+
+          @include not-desktop {
+            position: absolute;
+          }
+
+          transform: translateY(-50%) rotate(-180deg);
+        }
+
+        .sub-menu {
+          opacity: 1;
+          visibility: visible;
+          max-height: 1000px;
+        }
+      }
+    }
+  }
+
+  &__hamburger {
+    z-index: 11;
+    display: block;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    transition: width 0.4s ease-in-out;
+    width: 38px;
+    z-index: 11;
+    margin-left: auto;
+    border: unset;
+    background-color: unset;
+
+    @include desktop-only {
+      display: none;
+    }
+
+    &::after {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 65%;
+
+      @extend %after-before;
+    }
+
+    span::after,
+    span::before {
+      @extend %after-before;
+    }
+
+    span::before {
+      top: 0;
+      transform-origin: right top;
+      width: 88%;
+    }
+
+    span::after {
+      bottom: 0;
+      transform-origin: right top;
+      width: 40%;
+    }
+  }
+
+  @include not-desktop {
+    padding: unset;
+
+    &__nav-wrapper {
+      z-index: 10;
+      transform-origin: right center;
+      visibility: hidden;
+      transform: translateX(100%);
+      transition: transform $timing-function, visibility $timing-function;
+
+      @include box(100vw, 100%);
+      @include position(fixed, 0, 0);
+
+      nav {
+        width: 450px;
+        position: relative;
+        background-color: var(--wp--preset--color--base);
+        overflow-y: auto;
+        height: 100%;
+        margin-left: auto;
+        padding: 30px 15px;
+        padding: 150px 15px 30px;
+        transform: translateX(100%);
+        transition: transform $timing-function;
+      }
+
+      &--is-open {
+        opacity: 1;
+        transform: translateX(0%);
+        visibility: visible;
+        transition: transform $timing-function, visibility $timing-function;
+
+        nav {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    &__button {
+      margin-left: unset;
+    }
+
+    &__nav {
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      .menu-item {
+        color: var(--wp--preset--color--contrast);
+
+        a {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          line-height: 30px;
+          font-size: var(--wp--preset--font-size--medium);
+          font-weight: 400;
+          height: 46px;
+          transition: 500ms;
+          width: 85%;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        &:is(.menu-item-has-children) {
+          flex-direction: column;
+          align-items: start;
+        }
+      }
+    }
+
+    #{$navigation}__pseudo-element {
+      transform: translateX(100%);
+      transition: opacity $timing-function, transform $timing-function;
+      transform-origin: right center;
+    }
+  }
+
+  &--mobile-is-open {
+    overflow: hidden;
+
+    %after-before {
+      background-color: var(--wp--preset--color--contrast);
+    }
+
+    #{$navigation}__hamburger {
+      width: 30px;
+
+      &::after {
+        transform: translate(102%, -50%);
+      }
+
+      span::before {
+        transform: rotate(-46deg) translate(-3px, -2px) scaleX(1.2);
+        width: 100%;
+      }
+
+      span::after {
+        transform: rotate(46deg) translateY(1px) scaleX(1.2);
+        width: 100%;
+      }
+    }
+
+    #{$navigation}__pseudo-element {
+      content: '';
+      height: 100%;
+      background-color: var(--wp--preset--color--contrast);
+      display: block;
+      width: 100vw;
+      opacity: 0.7;
+      transform: translateX(0);
+
+      @include position(absolute, 0, 0, 0, 0);
+    }
+
+    .wp-block-search {
+      width: 100%;
+
+      .wp-block-search__inside-wrapper {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+// .wp-site-blocks {
+//   padding-top: 101px;
+// }

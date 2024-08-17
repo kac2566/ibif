@@ -1,0 +1,25 @@
+.is-style-button-v1,
+.editor-styles-wrapper .is-style-button-v1 {
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+
+  .wp-block-button__link {
+    color: var(--wp--preset--color--base);
+    font-size: var(--wp--preset--font-size--medium);
+    background-color: var(--wp--preset--color--accent);
+    padding: 20px 40px;
+    position: relative;
+    transition: background-color $timing-function, color $timing-function;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.36px;
+    line-height: 1.7;
+    font-weight: 700;
+
+    &:hover {
+      background-color: var(--wp--preset--color--contrast);
+      color: var(--wp--preset--color--base);
+    }
+  }
+}

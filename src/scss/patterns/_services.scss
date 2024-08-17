@@ -1,0 +1,12 @@
+.services {
+  & &__columns {
+    @include tablet-only {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .wp-block-column:last-of-type {
+        grid-column: span 2;
+      }
+    }
+  }
+}
