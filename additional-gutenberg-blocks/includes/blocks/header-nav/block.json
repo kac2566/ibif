@@ -1,0 +1,15 @@
+{
+    "name": "acf/navigation",
+    "title": "Header Navigation",
+    "description": "A custom block that uses ACF fields.",
+    "category": "theme-acf",
+    "icon": "menu-alt",
+    "keywords": ["navigation", "motyw"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "navigation.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

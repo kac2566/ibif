@@ -1,0 +1,15 @@
+{
+    "name": "acf/back-to-top",
+    "title": "Przycisk powrotu do góry/Back to Top",
+    "description": "A custom block that uses ACF fields.",
+    "category": "theme-acf",
+    "icon": "arrow-up-alt",
+    "keywords": ["powrót", "przycisk", "acf"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "back-to-top.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
